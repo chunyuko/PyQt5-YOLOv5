@@ -27,28 +27,11 @@
 本地图片检测画面：
 ![本地](https://github.com/Javacr/PyQt5-YOLOv5/blob/master/imgs/%E5%9B%BE%E7%89%87.png)
 
-## 要做的事
-
-**一.** 将*yolov5*的*utils/datasets.py*中*LoadWebcam*类中*__ next __*的返回值改为
-
-```python
-return img_path, img, img0, self.cap #（位置在270行上下）。
-```
-
-**二.** 为了避免中文路径报错（路径不包含中文可以忽略这一步），将*utils/datasets.py*中*LoadImages*类中的
-
-```python
-img0 = cv2.imread(path)	#（位置在212行上下）。
-```
-
-改为
-
-```python
-img0 = cv2.imdecode(np.fromfile(path, dtype=np.uint8), 1)
-```
-
-**三.** 将*main_ui.py、yolo_win.py*和*icon*文件夹（存放图标）放在*yolov5-master*根目录下。
+## 使用
 
 运行*yolo_win.py*即可开启检测界面。
 
-存在的一个小问题，切换模型或者文件**过于频繁**，可能会卡住，重启一下即可。这种情况很少出现，问题不大。
+存在的一个小问题，切换模型或者文件**过于频繁**，可能会卡住，重启一下即可。
+
+这种情况很少出现，问题不大。
+
