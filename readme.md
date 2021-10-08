@@ -1,4 +1,5 @@
-2021/9/29更新：加入置信度选择
+2021/10/8: 所有代码已上传，直接clone后，运行*yolo_win.py*即可开启界面
+2021/9/29：加入置信度选择
 ![置信度](https://github.com/Javacr/PyQt5-YOLOv5/blob/master/imgs/20210929_134634%2000_00_00-00_00_30.gif)
 
 界面是在*ultralytics*的[yolov5](https://github.com/ultralytics/yolov5)基础上建立的，界面使用*pyqt5*实现，内容较简单，娱乐而已。
