@@ -19,6 +19,9 @@
 使用视频：
 [https://www.bilibili.com/video/BV1sQ4y1C7Vk?spm_id_from=333.999.0.0](https://www.bilibili.com/video/BV1sQ4y1C7Vk?spm_id_from=333.999.0.0)
 
+csdn:
+[https://blog.csdn.net/weixin_41735859/article/details/120507779?spm=1001.2014.3001.5501](https://blog.csdn.net/weixin_41735859/article/details/120507779?spm=1001.2014.3001.5501)
+
 摄像头检测画面：
 
 ![摄像头](https://github.com/Javacr/PyQt5-YOLOv5/blob/master/imgs/%E6%91%84%E5%83%8F%E5%A4%B4.jpg)
