@@ -2,7 +2,7 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QWidget
 from main_ui import Ui_MainWindow
 from PyQt5.QtCore import pyqtSignal, QThread, QTimer
-from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtGui import QImage, QPixmap,QPainter
 import sys
 import time
 from pathlib import Path
@@ -139,6 +139,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.horizontalSlider.valueChanged.connect(lambda: self.conf_change(self.horizontalSlider))
         self.spinBox.valueChanged.connect(lambda: self.conf_change(self.spinBox))
 
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        pixmap = QPixmap("./icon/background.jpg")
+        # 绘制窗口背景，平铺到整个窗口，随着窗口改变而改变
+        painter.drawPixmap(self.rect(), pixmap)
+
     # 更改置信度
     def conf_change(self, method):
         if method == self.horizontalSlider:
@@ -217,21 +223,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 nw = w
                 nh = int(scal * ih)
                 img_src_ = cv2.resize(img_src, (nw, nh))
-                # 计算差值
-                dis = h - nh
-                if dis > 0:
-                    img_src_ = cv2.copyMakeBorder(img_src_, int(dis / 2), int(dis / 2),
-                                                  0, 0, cv2.BORDER_CONSTANT, value=(221, 221, 221))
+
             else:
                 scal = h / ih
                 nw = int(scal * iw)
                 nh = h
                 img_src_ = cv2.resize(img_src, (nw, nh))
-                # 计算差值
-                dis = w - nw
-                if dis > 0:
-                    img_src_ = cv2.copyMakeBorder(img_src_, 0, 0, int(dis / 2), int(dis / 2), cv2.BORDER_CONSTANT,
-                                                  value=(221, 221, 221))
+
             frame = cv2.cvtColor(img_src_, cv2.COLOR_BGR2RGB)
             img = QImage(frame.data, frame.shape[1], frame.shape[0], frame.shape[2] * frame.shape[1],
                          QImage.Format_RGB888)

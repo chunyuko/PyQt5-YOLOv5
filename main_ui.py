@@ -91,14 +91,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.label_raw = QtWidgets.QLabel(self.groupBox)
         self.label_raw.setAutoFillBackground(False)
-        self.label_raw.setStyleSheet("background-color: rgb(221, 221, 221);")
+        # self.label_raw.setStyleSheet("background-color: rgb(221, 221, 221);")
         self.label_raw.setText("")
         self.label_raw.setScaledContents(False)
         self.label_raw.setAlignment(QtCore.Qt.AlignCenter)
         self.label_raw.setObjectName("label_raw")
         self.horizontalLayout_2.addWidget(self.label_raw)
         self.label_result = QtWidgets.QLabel(self.groupBox)
-        self.label_result.setStyleSheet("background-color: rgb(221, 221, 221);")
+        # self.label_result.setStyleSheet("background-color: rgb(221, 221, 221);")
         self.label_result.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.label_result.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.label_result.setText("")
@@ -190,6 +190,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "YOLOV5检测界面"))
+        # 设置透明度
+        MainWindow.setWindowOpacity(0.95)
         self.statistic_2.setText(_translate("MainWindow", "置信度"))
         self.label_2.setText(_translate("MainWindow", "输入数据"))
         self.label.setText(_translate("MainWindow", "检测结果"))
